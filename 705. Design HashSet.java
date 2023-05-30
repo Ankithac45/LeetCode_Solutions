@@ -1,5 +1,5 @@
 class MyHashSet {
-    private final int ARRAY_SIZE = 1000001; 
+    private int ARRAY_SIZE = 1000001; 
     private boolean[] buckets;
 
     public MyHashSet() {
