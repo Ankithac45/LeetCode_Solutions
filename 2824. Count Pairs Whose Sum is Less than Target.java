@@ -1,24 +1,18 @@
 class Solution {
-    public int binaryGap(int n) {
-        int maxlen = 0;
-        int len = 0;
-        boolean foundOne = false; 
+    public int countPairs(List<Integer> nums, int target) {
+        Collections.sort(nums);
+        int left = 0, right = nums.size() - 1;
+        int count = 0;
 
-        while (n > 0) {
-            int val = n & 1;
-            n >>= 1;
-
-            if (val == 1) {
-                if (foundOne) {
-                    maxlen = Math.max(maxlen, len); 
-                }
-                len = 1; 
-                foundOne = true; 
-            } else if (foundOne) {
-                len++;
+        while (left < right) {
+            if (nums.get(left) + nums.get(right) < target) {
+                count += right - left;
+                left++;
+            } else {
+                right--;
             }
         }
 
-        return maxlen;
+        return count;      
     }
 }
