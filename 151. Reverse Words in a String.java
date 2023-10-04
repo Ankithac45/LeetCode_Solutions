@@ -31,35 +31,4 @@ class Solution {
         return res;
         //return res.trim();
     }
-}Solution {
-    public String reverseWords(String s) {
-        String temp="";
-        String res="";
-        s=s.trim();        
-        int j=s.length()-1;
-        // skip any leading whitespaces in the input string
-        while(s.charAt(j)==' '){
-            j--;
-        }
-        for(int i=j;i>=0;i--){
-            if(s.charAt(i)!=' ' && i==0){
-                temp+=s.charAt(i); 
-                String reversedString = new StringBuilder(temp).reverse().toString();
-                temp="";
-                res+=reversedString;             
-            }else if(s.charAt(i)!=' '){
-                temp+=s.charAt(i);
-            }else if(s.charAt(i+1)!=' '){
-                String reversedString = new StringBuilder(temp).reverse().toString();
-                temp="";
-                res+=reversedString;
-                res+=" ";
-            }
-        }
-        // remove any trailing whitespaces from the output string
-        while(res.length()>0 && res.charAt(res.length()-1)==' '){
-            res = res.substring(0, res.length()-1);
-        }   
-        return res;
-    }
 }
